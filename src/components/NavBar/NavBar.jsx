@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import planet from '../../assets/planet.png';
 import './NavBar.css';
 
@@ -10,7 +10,7 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar">
       <Container>
-        <Nav to="/" className="justify-content-center">
+        <Link to="/" className="justify-content-center">
           <img
             src={planet}
             width="60"
@@ -21,7 +21,7 @@ function NavBar() {
           <span className="brand-text">
             Space Travelers Hub
           </span>
-        </Nav>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav className="nav-items">
