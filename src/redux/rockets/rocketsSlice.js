@@ -8,10 +8,13 @@ const rocketsSlice = createSlice({
   initialState,
   reducers: {
     getRocketsSuccess: (state, action) => action.payload,
+    toggleReservationState: (state, action) => state.map((rocket) => (rocket.id !== action.payload
+      ? rocket
+      : { ...rocket, isReserved: !rocket.isReserved })),
   },
 });
 
-const { getRocketsSuccess } = rocketsSlice.actions;
+const { getRocketsSuccess, toggleReservationState } = rocketsSlice.actions;
 
 // Thunks
 const gettingRockets = () => async (dispatch) => {
@@ -25,5 +28,6 @@ export {
   reducer as default,
   rocketsSlice,
   getRocketsSuccess,
+  toggleReservationState,
   gettingRockets,
 };
