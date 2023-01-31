@@ -1,8 +1,10 @@
-import React from 'react';
+import RocketList from '../components/Rockets/RocketList';
 
 function Rockets() {
   return (
-    <div>Rockets</div>
+    <div>
+      <RocketList />
+    </div>
   );
 }
 
