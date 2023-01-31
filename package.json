@@ -11,6 +11,7 @@
     "fix-eslint": "npx eslint . --fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "@vitejs/plugin-react": "^3.0.0",
     "bootstrap": "^5.2.3",
     "prop-types": "^15.8.1",
@@ -21,6 +22,7 @@
     "react-router": "^6.8.0",
     "react-router-dom": "^6.8.0",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.2",
     "vite": "^4.0.0"
   },
   "devDependencies": {
