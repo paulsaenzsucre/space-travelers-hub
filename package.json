@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "npx eslint . && npx stylelint \"**/*.{css,scss}\"",
+    "fix-eslint": "npx eslint . --fix"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.0",
