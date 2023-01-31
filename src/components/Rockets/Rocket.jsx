@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 import Figure from 'react-bootstrap/Figure';
+import { Badge } from 'react-bootstrap';
 
 const Rocket = ({
   rocketName,
@@ -36,7 +37,10 @@ const Rocket = ({
         <Card style={{ border: 0 }}>
           <Card.Body style={{ padding: 0 }}>
             <Card.Title>{rocketName}</Card.Title>
-            <Card.Text>{description}</Card.Text>
+            <Card.Text>
+              {isReserved ? (<Badge bg="info">Reserved</Badge>) : ''}
+              {description}
+            </Card.Text>
             <Button
               variant={isReserved ? 'outline-secondary' : 'primary'}
               onClick={handleClick}
