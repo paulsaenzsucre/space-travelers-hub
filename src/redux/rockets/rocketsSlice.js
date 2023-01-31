@@ -1,22 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import getRockets from '../../modules/RocketsApi';
 
-const initialState = {
-  rockets: [],
-};
+const initialState = [];
 
 const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
-    dummy: (state) => state.push('dummyText'),
+    getRocketsSuccess: (state, action) => action.payload,
   },
 });
 
-const { dummy } = rocketsSlice.actions;
+const { getRocketsSuccess } = rocketsSlice.actions;
+
+// Thunks
+const gettingRockets = () => async (dispatch) => {
+  const rockets = await getRockets();
+  dispatch(getRocketsSuccess(rockets));
+};
+
 const { reducer } = rocketsSlice;
 
 export {
-  rocketsSlice,
   reducer as default,
-  dummy,
+  rocketsSlice,
+  getRocketsSuccess,
+  gettingRockets,
 };
