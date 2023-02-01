@@ -2,11 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import MissionRow from '../components/Mission/MissionRow';
-import {
-  apiFetchMissions,
-  // joinMission,
-  // leaveMission,
-} from '../redux/missions/missions';
+import { apiFetchMissions } from '../redux/missions/missions';
 
 let rendered = false;
 function Missions() {
