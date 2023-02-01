@@ -6,16 +6,20 @@ import {
 
 function MyProfile() {
   const rockets = useSelector((state) => state.rockets);
-
+  const missions = useSelector((state) => state.missions.missions);
+  let joinedMissions = [];
+  if (missions) {
+    joinedMissions = missions.length ? missions.filter((mission) => mission.status) : [];
+  }
   return (
     <Container className="mt-5">
       <Row>
         <Col>
           <h1>My Missions</h1>
           <ListGroup>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+            {joinedMissions.length ? joinedMissions.map((mission) => (
+              <ListGroup.Item key={mission.mission_id}>{mission.mission_name}</ListGroup.Item>
+            )) : <h6 className="text-danger">No Joined Group</h6>}
           </ListGroup>
         </Col>
         <Col>
