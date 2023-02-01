@@ -1,11 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
+import { toggleReservationState } from '../../redux/rockets/rocketsSlice';
 import Rocket from './Rocket';
 
 const RocketList = () => {
   const rockets = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
 
-  const toggleReservationStatus = (id) => console.log(`toggleReservation id: ${id}`);
+  const toggleReservationStatus = (id) => {
+    dispatch(toggleReservationState(id));
+  };
 
   return (
     <ListGroup>
