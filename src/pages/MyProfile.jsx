@@ -1,16 +1,48 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  Col, Container, ListGroup, Row,
+  Alert,
+  Button,
+  Col,
+  Container,
+  ListGroup,
+  Row,
 } from 'react-bootstrap';
+import { toggleReservationState } from '../redux/rockets/rocketsSlice';
 
 function MyProfile() {
   const rockets = useSelector((state) => state.rockets);
   const missions = useSelector((state) => state.missions.missions);
+  const dispatch = useDispatch();
+
   let joinedMissions = [];
   if (missions) {
     joinedMissions = missions.length ? missions.filter((mission) => mission.status) : [];
   }
+
+  const cancelRocketReservation = (id) => {
+    dispatch(toggleReservationState(id));
+  };
+
+  const filterReservedRockets = (rocks) => {
+    const reserved = rocks.filter((rocket) => rocket.isReserved);
+
+    return reserved.length > 0
+      ? reserved.map((rocket) => (
+        <ListGroup.Item key={rocket.id}>
+          <div className="d-flex justify-content-between align-items-center">
+            {rocket.rocketName}
+            <div>
+              <a className="btn btn-info me-3" href={rocket.wikipedia} target="_blank" rel="noreferrer">Read more</a>
+              <Button variant="danger" onClick={() => cancelRocketReservation(rocket.id)}>Cancel Reservation</Button>
+            </div>
+
+          </div>
+        </ListGroup.Item>
+      ))
+      : (<Alert variant="info">No rockets reserved</Alert>);
+  };
+
   return (
     <Container className="mt-5">
       <Row>
@@ -25,13 +57,7 @@ function MyProfile() {
         <Col>
           <h1>My Rockets</h1>
           <ListGroup>
-            {rockets.map((rocket) => (rocket.isReserved
-              ? (
-                <ListGroup.Item key={rocket.id}>
-                  {rocket.rocketName}
-                </ListGroup.Item>
-              )
-              : null))}
+            {filterReservedRockets(rockets)}
           </ListGroup>
         </Col>
       </Row>
