@@ -8,10 +8,14 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "npx eslint . && npx stylelint \"**/*.{css,scss}\"",
-    "fix-eslint": "npx eslint . --fix"
+    "fix-eslint": "npx eslint . --fix",
+    "test": "react-scripts test"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@vitejs/plugin-react": "^3.0.0",
     "bootstrap": "^5.2.3",
     "prop-types": "^15.8.1",
@@ -21,6 +25,7 @@
     "react-redux": "^8.0.5",
     "react-router": "^6.8.0",
     "react-router-dom": "^6.8.0",
+    "react-scripts": "^5.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.2",
     "vite": "^4.0.0"
