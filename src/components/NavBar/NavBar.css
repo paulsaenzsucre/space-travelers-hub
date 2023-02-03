@@ -1,0 +1,18 @@
+.navbar {
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+.brand-text {
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.nav-items {
+  display: flex;
+  gap: 10px;
+}
+
+.active {
+  text-decoration: underline;
+}
