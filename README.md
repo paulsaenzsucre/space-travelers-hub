@@ -62,7 +62,7 @@
 
 Click in the following link to see a working live version of this project:
 
-- [Space Travelers' Hub App demo](https://elafildecolor.github.io/space-travelers-hub/)
+- [Space Travelers' Hub App demo](https://www.paulsaenzsucre.dev/space-travelers-hub/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
